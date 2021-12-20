@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Emoji | Arten Channel</title>
+  <link rel="stylesheet" href="css/emoji_keyboard.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    .container {
+      margin: 150px auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Emoji </h1>
+    <p class="lead">A simple, fast, beautiful, resizable, and searchable emoji picker</p>
+    <button id="test" class="btn btn-danger">Toggle The Emoji Picker</button>
+    <div id="display" class="alert alert-info my-3"></div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/fuse.js"></script>
+  <script src="js/twemoji.min.js"></script>
+  <script src="js/emoji_keyboard.js"></script>
+  <script>
+    const zone = document.getElementById("display");
+    var emojiKeyboard = new EmojiKeyboard;
+
+    emojiKeyboard.callback = (emoji, closed) => {
+      console.info(emoji, closed)
+      zone.innerText += emoji.emoji;
+    };
+    emojiKeyboard.resizable = true;
+    emojiKeyboard.default_placeholder = "You are the best";
+    emojiKeyboard.instantiate(document.getElementById("test"))
+  </script>
+
+</body>
+
+</html>
